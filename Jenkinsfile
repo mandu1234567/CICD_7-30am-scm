@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-               git branch: 'main', url: 'https://github.com/CloudTechDevOps/CICD-series.git'
+               git branch: 'main', url: 'https://github.com/mandu1234567/MANDU-terraform-7-30am.git'
             }
         }
          stage('init') {
             steps {
-                dir('Day-5-piplelinefromSCM') {
+                dir('terraform-day-1') {
                   sh  'terraform init'
               
                 }
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('plan') {
             steps {
-               dir('Day-5-piplelinefromSCM') {
+               dir('terraform-day-1') {
                   sh  'terraform plan'
               
                 }
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('apply') {
             steps {
-                dir('Day-5-piplelinefromSCM') {
+                dir('terraform-day-1') {
                   sh  'terraform apply -auto-approve'
               
                 }
